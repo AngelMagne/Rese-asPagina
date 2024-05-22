@@ -1,0 +1,35 @@
+.navbar-brand, .nav-link {
+    color: #F0E68C !important;
+}
+.carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+    color: #ffffff;
+    text-align: left;
+    font-family: 'Lora', serif;
+}
+.carousel-caption.right {
+    right: auto;
+}
+.carousel-caption.left {
+    left: auto;
+}
+body {
+    background-color: #1E1E2C;
+    color: #F0E68C;
+}
+.navbar {
+    background-color: #28293D;
+}
+.navbar-brand img {
+    width: 200px;
+}
+.navbar-nav .nav-link {
+    color: #F0E68C !important;
+}
