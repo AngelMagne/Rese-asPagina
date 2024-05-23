@@ -1,35 +1,52 @@
-.navbar-brand, .nav-link {
-    color: #F0E68C !important;
+
+body{
+    background-image: url('img/logo.png');
+    background-repeat: repeat;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
 }
-.carousel-item img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
+.navbar{
+    background-image: linear-gradient(to top, rgba(13, 202, 240, 0), rgba(13, 202, 240, 1)) !important;
 }
-.carousel-caption {
-    position: absolute;
-    bottom: 20px;
-    z-index: 10;
-    color: #ffffff;
-    text-align: left;
-    font-family: 'Lora', serif;
+.navbar-brand {
+    font-family: sans-serif; /* Cambia 'Arial' por la fuente que prefieras */
+    font-size: 2em;
 }
-.carousel-caption.right {
-    right: auto;
+.offcanvas-title{
+    font-size: 3em;
+} 
+#carouselExampleFade{
+    margin-top: 8em;
 }
-.carousel-caption.left {
-    left: auto;
+.carousel-item img{
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5) !important; /* Opacidad hacia oscuro */
 }
-body {
-    background-color: #1E1E2C;
-    color: #F0E68C;
+.carousel-control-prev, .carousel-control-next {
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important; /* Opacidad hacia oscuro */
 }
-.navbar {
-    background-color: #28293D;
+.carousel-control-prev, .carousel-control-next {
+    width: 70px; /* Ajusta este valor según sea necesario */
 }
-.navbar-brand img {
-    width: 200px;
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 20px; /* Ajusta este valor según sea necesario */
+    height: 20px; /* Ajusta este valor según sea necesario */
+    background-size: 20px 20px; /* Ajusta este valor según sea necesario */
 }
-.navbar-nav .nav-link {
-    color: #F0E68C !important;
+.badge{
+    box-shadow: black 1em;
+    text-align: center;
+    font-size: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-top: 1em;
+}
+form{
+    margin-left: 65em;
+    display: flex;
+}
+.row{
+    margin-top: 5em !important;
+}
+.container-titulo{
+    background-image: url('img/iron.png') !;
 }

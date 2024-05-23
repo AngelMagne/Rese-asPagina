@@ -3,143 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animal Crossing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Review Box</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-image:url('img/logo.png');
+            background-repeat: repeat;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+            
+        }
+        footer .nav-link{
+            color: #fd4 !important;
+            font-size: 15px;
+        }
+        .navbar{
+            background-image: linear-gradient(to top, rgba(13, 202, 240, 0), rgba(13, 202, 240, 1)) !important;
+        }
+        .navbar-brand {
+            font-family: sans-serif; /* Cambia 'Arial' por la fuente que prefieras */
+            font-size: 2em;
+        }
+        .offcanvas-title{
+            font-size: 3em;
+        } 
+        #carouselExampleFade{
+            margin-top: 8em;
+        }
+        .carousel-item img:hover{
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5) !important; /* Opacidad hacia oscuro */
+        }
+        .carousel-control-prev, .carousel-control-next {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important; /* Opacidad hacia oscuro */
+        }
+        .carousel-control-prev, .carousel-control-next {
+            width: 70px; /* Ajusta este valor según sea necesario */
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            width: 20px; /* Ajusta este valor según sea necesario */
+            height: 20px; /* Ajusta este valor según sea necesario */
+            background-size: 20px 20px; /* Ajusta este valor según sea necesario */
+        }
+        .badge{
+            box-shadow: black 1em;
+            text-align: center;
+            font-size: 1em;
+            padding-left: 2em;
+            padding-right: 2em;
+            margin-top: 1em;
+        }
+        form{
+            margin-left: 65em;
+            display: flex;
+        }
+        .row{
+            margin-top: 5em !important;
+        }
+        .container-titulo{
+            background-image: url('img/iron.png') !;
+        }
+        .card {
+            transition: transform 0.3s ease;
+          }
+          
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .container-titulo {
+            background-image: url('img/logo2.jpg');
+            background-repeat: repeat;
+            padding: 2em; /* Ajusta el padding según sea necesario */
+            color: white;
+            text-align: center;
+            border-radius: 100px  ;
+          }
+          
+        .titulo {
+            font-weight: bold;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: start;
+          }
+          
+          .star-rating .star-checkbox {
+            display: none;
+          }
+          
+          .star-rating .fa-star {
+            font-size: 2em;
+            color: #444;
+            cursor: pointer;
+          }
+          
+          .star-rating .star-checkbox:checked ~ .fa-star {
+            color: #fd4;
+          }
+          
+          .star-rating .fa-star:hover,
+          .star-rating .fa-star:hover ~ .fa-star {
+            color: #fd4;
+          }
+    </style>
 </head>
 <body>
     
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-dark" id="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo.jpg" alt="Logo" width="200">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Reseñas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Registro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio de Sesion</a></li>
+    <nav class="navbar navbar-dark bg-dark fixed-top bg-transparent bg-gradient ">
+        <div class="container-fluid p-3">
+            <a class="navbar-brand fw-bolder" href="#"><img src="img/logo1.png" width="60px" height="60px">
+                <span class="text-danger">  REVIEW</span> <span class="text-info">BOX</span></a>
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Busca Juegos" aria-label="Search">
+                      <button class="btn btn-outline-info" type="submit">Buscar</button>
+                    </form>    
+          <button class="navbar-toggler text-info " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>  Inicio
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark text-info" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title p-3 fw-bolder " id="offcanvasDarkNavbarLabel">¡ Siguenos !</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 p-3">
+                <li class="nav-item">
+                  <span class="badge rounded-pill text-bg-info"><a class="nav-link active" aria-current="page" href="form.html">Registrate</a></span>
+                </li>
+                <li class="nav-item">
+                <span class="badge rounded-pill text-bg-secondary"><a class="nav-link" href="#">Inicia Sesion</a></span>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="badge rounded-pill text-bg-secondary">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown    
+                  </a></span>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- CARRUSEL -->
+      <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+            <div class="carousel-item active position-relative">
+                <img src="img/slideEldenRing01.jpg" class="d-block w-100" alt="...">
+                <div class="position-absolute top-50   end-0 w-50  h-100">
+                    <div class="card text-white bg-transparent  h-50 me-5">
+                        <div class="card-body">
+                            <h1 class="card-title fw-bolder mt-5 mb-5 text-info">Elden Ring</h1>
+                            <p class="card-text fw-bold ">El mas reciente exito de From Software esta siendo alabado por la critica. Adentrate en el maravilloso mundo creado por Hidetaka Miyazaki y George R.R. Martin 
+                                un juengo como ningun otro en el que explorar un basto y desolado reino lleno de peligros en cada esquina
+                            </p>
+                            <p class="card-text">Comparte tus opiniones  <a class=" badge rounded-pill text-bg-info p-1" href="#"> aqui</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="img/slideBloodBorne02.jpg" class="d-block w-100" alt="...">
+                <div class="position-absolute top-0 end-0 w-50 h-100">
+                    <div class="card text-white bg-transparent  h-100">
+                        <div class="card-body me-5">
+                            <h1 class="card-title fw-bolder mt-5 mb-5 text-info ">Bloodborne</h1>
+                            <p class="card-text fw-bold ">Sean bienvenidos al clasico de Miyazaki la primera IP nueva desde los galardonados Dark Souls.
+                                Ven y asombrate de todo el terror cosmico (Lovecraft) que puede dejarte con la boca abierta 
+                            </p>
+                            <p class="card-text">Comparte tus opiniones  <a class=" badge rounded-pill text-bg-info p-1" href="#"> aqui</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="img/slideTLOU05.jpg" class="d-block w-100" alt="...">
+                <div class="position-absolute top-0  end-50  w-50 h-100">
+                    <div class="card text-white bg-transparent  h-100">
+                        <div class="card-body ms-5">
+                            <h1 class="card-title fw-bolder mt-5 mb-5 text-info ">The Last of Us</h1>
+                            <p class="card-text fw-bold">La gran obra maestra de Neil Druckmann un videojuego historico amado desde su concepcion en el año 2013 la gran
+                                la gran secuela de The Last Of Us ya esta aqui y puedes ser participe de la conmovedora y sangrienta histpria de Elie.</p>
+                            <p class="card-text">Comparte tus opiniones  <a class=" badge rounded-pill text-bg-info p-1" href="#"> aqui</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="container-titulo text-dark" style="margin-top: 10em;">
+        <h1 class="titulo fw-bold " style="text-align: center;">Conviertete en un CRITICO y haz que tus reviews lleguen a todo el mundo</h1>
+      </div>
+      <!-- cards -->
+      <div class="row row-cols-1 row-cols-md-3 g-5 w-75 mx-auto ">
+        <div class="col">
+          <div class="card bg-dark h-100 border-secondary ">
+            <img src="img/iron.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-info mb-4" style="text-align: center;">Rango Gratuito</h5>
+              <ul class="card-text text-bg-dark ">
+                <li><p>Podras hacer review de cualquier juego</p></li>
+                <li><p>Alcance de perfil bajo</p></li>
+            </ul>
+            </div>
+            <div class="card-footer d-flex justify-content-center">
+               <button type="button" class="btn btn-outline-secondary">Gratuito</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-dark h-100 border-warning ">
+            <img src="img/gold.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-info mb-4" style="text-align: center;">Rango Oro</h5>
+                <ul class="card-text text-bg-dark text-warning ">
+                    <li><p>Podras ver comentarios agenos </p></li>
+                    <li><p>Podras responder Comentarios</p></li>
+                    <li><p>Alcance de perfil medio</p></li>
+                    <li><p>Mas alcance de reviewers</p></li>
                 </ul>
             </div>
-        </div>
-    </nav>
-   <!-- Carrusel 1: Hacia la derecha con texto a la derecha -->
-   <div id="carouselRight1" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="img/slideEldenRing01.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption right">
-                <h3>Título de la Imagen 1</h3>
-                <p>Descripción de la imagen 1.</p>
+            <div class="card-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-warning">Comprar: $4.99</button>
             </div>
+          </div>
         </div>
-        <div class="carousel-item">
-            <img src="img/slideBloodBorne02.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption right">
-                <h3>Título de la Imagen 2</h3>
-                <p>Descripción de la imagen 2.</p>
+        <div class="col">
+          <div class="card bg-dark h-100 border-danger">
+            <img src="img/diamond.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-info mb-4" style="text-align: center;">Rango Diamante</h5>
+                <ul class="card-text text-bg-dark text-danger">
+                    <li><p>Todo las tiers anteriores </p></li>
+                    <li><p>Alcance de perfil muy alto</p></li>
+                    <li><p>Perfil completamente personalizable</p></li>
+                    <li><p>Emoticonos especiales y unicos</p></li>
+                </ul>
             </div>
-        </div>
-        <div class="carousel-item">
-            <img src="img/slide03.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption right">
-                <h3>Título de la Imagen 3</h3>
-                <p>Descripción de la imagen 3.</p>
+            <div class="card-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-danger">Comprar: $9.99</button>
             </div>
+          </div>
         </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselRight1" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselRight1" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-    </a>
-</div>
+      </div>
+      <!-- Videojuegos -->
+      <div class="container-titulo text-dark" style="margin-top: 10em;">
+        <h1 class="titulo fw-bold " style="text-align: center;">Los Juegos mejor Valorados segun los CRITICOS</h1>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4 w-75 mx-auto ">
+        <div class="col">
+            <div class="card text-bg-dark">
+                <img src="img/card1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Grand Theft Auto v</h5>
+                  <p class="card-text">
+                    <div class="star-rating">
+                        <input type="checkbox" class="star-checkbox" name="rating1-1" value="1">
+                        <label class="fa fa-star"></label>
+                        <input type="checkbox" class="star-checkbox" name="rating1-2" value="2">
+                        <label class="fa fa-star"></label>
+                        <input type="checkbox" class="star-checkbox" name="rating1-3" value="3">
+                        <label class="fa fa-star"></label>
+                        <input type="checkbox" class="star-checkbox" name="rating1-4" value="4">
+                        <label class="fa fa-star"></label>
+                        <input type="checkbox" class="star-checkbox" name="rating1-5" value="5">
+                        <label class="fa fa-star"></label>
+                      </div>
+                      <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
 
-<!-- Carrusel 2: Hacia la izquierda con texto a la izquierda -->
-<div id="carouselLeft" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="img/slideGodOfWar03.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption left">
-                <h3>Título de la Imagen 1</h3>
-                <p>Descripción de la imagen 1.</p>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="img/slideTLOU05.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption left">
-                <h3>Título de la Imagen 2</h3>
-                <p>Descripción de la imagen 2.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="img/slide03.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption left">
-                <h3>Título de la Imagen 3</h3>
-                <p>Descripción de la imagen 3.</p>
-            </div>
-        </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselLeft" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselLeft" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-    </a>
-</div>
+        <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card2.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Red Dead Redmption 2</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating2-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating2-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating2-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating2-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating2-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
 
-<!-- Carrusel 3: Hacia la derecha con texto a la izquierda -->
-<div id="carouselRight2" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="img/slideHalo04.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption right">
-                <h3>Título de la Imagen 3</h3>
-                <p>Descripción de la imagen 3.</p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card3.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">World of Warcraft</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating3-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating3-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating3-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating3-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating3-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card4.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Call of Duty Ghost</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating4-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating4-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating4-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating4-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating4-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card5.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Prey</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating5-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating5-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating5-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating5-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating5-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card6.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Halo Reach</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating6-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating6-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating6-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating6-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating6-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card7.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sekiro</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating7-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating7-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating7-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating7-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating7-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+              <img src="img/card8.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Undertale</h5>
+                <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating8-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating8-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating8-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating8-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating8-5" value="5">
+                    <label class="fa fa-star"></label>
+                </div><p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-dark">
+                <img src="img/card1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Grand Theft Auto IV</h5>
+                  <p class="card-text"><div class="star-rating">
+                    <input type="checkbox" class="star-checkbox" name="rating9-1" value="1">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating9-2" value="2">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating9-3" value="3">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating9-4" value="4">
+                    <label class="fa fa-star"></label>
+                    <input type="checkbox" class="star-checkbox" name="rating9-5" value="5">
+                    <label class="fa fa-star"></label>
+                  </div>
+                  <p style="font-style: italic; color: #17a2b8;">@GamerPro123: ¡Me encantó este juego! La jugabilidad es increíble y los gráficos son impresionantes. La trama es cautivadora y te mantiene enganchado desde el principio hasta el final. Definitivamente lo recomendaría a cualquier amante de los videojuegos...</p>
+
+                </p>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <img src="img/slideTLOU05.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption right">
-                <h3>Título de la Imagen 3</h3>
-                <p>Descripción de la imagen 3.</p>
+      </div>
+      <div class="container-titulo text-dark" style="margin-top: 10em;">
+        <h1 class="titulo fw-bold " style="text-align: center;">Necesita Ayuda?</h1>
+      </div>
+    <!-- FOOTER -->
+    <div class="container text-info bg-transparent">
+        <footer class="py-5">
+            <div class="row justify-content-center"> <!-- Aquí agregamos justify-content-center para centrar las columnas horizontalmente -->
+                <div class="col-6 col-md-2 mb-3 text-center"> <!-- Aquí agregamos la clase text-center para centrar el contenido horizontalmente -->
+                    <h5>Contactenos</h5>
+                    <ul class="nav flex-column text-info">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-dark">contacto@empresa-ficticia.com</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Tel: +123 456 7890</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Operador</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col-6 col-md-2 mb-3 text-center">
+                    <h5>Direccion</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Calle Imaginaria 456</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Colonia Inventada</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ciudad Fantasía, FG 12345</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">País de la Groenlandia</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col-6 col-md-2 mb-3 text-center">
+                    <h5>Soporte</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Preguntas Frecuentes (FAQ)</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Política de Privacidad</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Términos y Condiciones</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Reportar un Problema</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Documentación Técnica</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <img src="img/slide03.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption right">
-                <h3>Título de la Imagen 3</h3>
-                <p>Descripción de la imagen 3.</p>
+            <div class="text-center">
+                <p>© 2024 REVIEWBOX, Inc. Todos los derechos reservados.</p>
+                <ul class="list-unstyled d-flex justify-content-center">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
             </div>
-        </div>
+        </footer>
     </div>
-    <a class="carousel-control-prev" href="#carouselRight2" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselRight2" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-    </a>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script> <!-- Llamada al archivo script.js -->
-<script src="js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    
+    
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
